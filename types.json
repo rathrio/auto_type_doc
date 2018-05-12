@@ -1,0 +1,138 @@
+{
+  "Set#initialize": {
+    "arguments": [
+      {
+        "name": "enum",
+        "types": {
+          "NilClass": 1
+        },
+        "kind": "opt",
+        "position": 0
+      },
+      {
+        "name": "block",
+        "types": {
+          "NilClass": 1
+        },
+        "kind": "block",
+        "position": 1
+      }
+    ],
+    "return_types": {
+      "NilClass": 1
+    },
+    "source_location": {
+      "file": "/Users/radi/.rubies/ruby-2.4.3/lib/ruby/2.4.0/set.rb",
+      "line": 83
+    }
+  },
+  "Cat.chabis=": {
+    "arguments": [
+      {
+        "name": "some_value",
+        "types": {
+          "Set": 1
+        },
+        "kind": "req",
+        "position": 0
+      }
+    ],
+    "return_types": {
+      "Array": 1
+    },
+    "source_location": {
+      "file": "auto_type_doc.rb",
+      "line": 225
+    }
+  },
+  "Set#to_a": {
+    "arguments": [
+
+    ],
+    "return_types": {
+      "Array": 1
+    },
+    "source_location": {
+      "file": "/Users/radi/.rubies/ruby-2.4.3/lib/ruby/2.4.0/set.rb",
+      "line": 181
+    }
+  },
+  "M#bite": {
+    "arguments": [
+      {
+        "name": "animal",
+        "types": {
+          "Dog": 1
+        },
+        "kind": "req",
+        "position": 0
+      }
+    ],
+    "return_types": {
+      "NilClass": 1
+    },
+    "source_location": {
+      "file": "auto_type_doc.rb",
+      "line": 210
+    }
+  },
+  "Cat.foobar": {
+    "arguments": [
+      {
+        "name": "num",
+        "types": {
+          "Integer": 1,
+          "Float": 2
+        },
+        "kind": "req",
+        "position": 0
+      }
+    ],
+    "return_types": {
+      "Integer": 1,
+      "Float": 2
+    },
+    "source_location": {
+      "file": "auto_type_doc.rb",
+      "line": 231
+    }
+  },
+  "CM#eat": {
+    "arguments": [
+      {
+        "name": "food",
+        "types": {
+          "Fish": 1
+        },
+        "kind": "req",
+        "position": 0
+      }
+    ],
+    "return_types": {
+      "NilClass": 1
+    },
+    "source_location": {
+      "file": "auto_type_doc.rb",
+      "line": 215
+    }
+  },
+  "CM.info": {
+    "arguments": [
+      {
+        "name": "args",
+        "types": {
+          "Array<Integer>": 1
+        },
+        "kind": "rest",
+        "position": 0
+      }
+    ],
+    "return_types": {
+      "String": 1
+    },
+    "source_location": {
+      "file": "auto_type_doc.rb",
+      "line": 218
+    }
+  }
+}
