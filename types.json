@@ -1,31 +1,4 @@
 {
-  "Set#initialize": {
-    "arguments": [
-      {
-        "name": "enum",
-        "types": {
-          "NilClass": 1
-        },
-        "kind": "opt",
-        "position": 0
-      },
-      {
-        "name": "block",
-        "types": {
-          "NilClass": 1
-        },
-        "kind": "block",
-        "position": 1
-      }
-    ],
-    "return_types": {
-      "NilClass": 1
-    },
-    "source_location": {
-      "file": "/Users/radi/.rubies/ruby-2.4.3/lib/ruby/2.4.0/set.rb",
-      "line": 83
-    }
-  },
   "Cat.chabis=": {
     "arguments": [
       {
@@ -41,20 +14,8 @@
       "Array": 1
     },
     "source_location": {
-      "file": "auto_type_doc.rb",
-      "line": 225
-    }
-  },
-  "Set#to_a": {
-    "arguments": [
-
-    ],
-    "return_types": {
-      "Array": 1
-    },
-    "source_location": {
-      "file": "/Users/radi/.rubies/ruby-2.4.3/lib/ruby/2.4.0/set.rb",
-      "line": 181
+      "file": "./foo_test.rb",
+      "line": 30
     }
   },
   "M#bite": {
@@ -72,8 +33,8 @@
       "NilClass": 1
     },
     "source_location": {
-      "file": "auto_type_doc.rb",
-      "line": 210
+      "file": "./foo_test.rb",
+      "line": 15
     }
   },
   "Cat.foobar": {
@@ -93,8 +54,8 @@
       "Float": 2
     },
     "source_location": {
-      "file": "auto_type_doc.rb",
-      "line": 231
+      "file": "./foo_test.rb",
+      "line": 36
     }
   },
   "CM#eat": {
@@ -112,8 +73,8 @@
       "NilClass": 1
     },
     "source_location": {
-      "file": "auto_type_doc.rb",
-      "line": 215
+      "file": "./foo_test.rb",
+      "line": 20
     }
   },
   "CM.info": {
@@ -131,8 +92,8 @@
       "String": 1
     },
     "source_location": {
-      "file": "auto_type_doc.rb",
-      "line": 218
+      "file": "./foo_test.rb",
+      "line": 23
     }
   }
 }
