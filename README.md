@@ -1,5 +1,7 @@
 # AutoTypeDoc
 
+![Build status](https://travis-ci.org/rathrio/auto_type_doc.svg?branch=master)
+
 Generates type documentation (e.g. YARD tags) by collecting runtime information.
 
 ## Installation
