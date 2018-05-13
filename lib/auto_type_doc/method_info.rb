@@ -10,7 +10,7 @@ module AutoTypeDoc
       @return_types = Hash.new(0)
     end
 
-    def source_file
+    def source_path
       source_location[0]
     end
 
@@ -52,7 +52,7 @@ module AutoTypeDoc
       h.merge(
         return_types: return_types,
         source_location: {
-          path: source_file,
+          path: source_path,
           line: source_line
         }
       )
