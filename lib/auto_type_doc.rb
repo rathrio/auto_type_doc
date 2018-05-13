@@ -6,11 +6,21 @@ require 'irb'
 require 'pry'
 require 'json'
 require 'set'
+require 'fileutils'
 
 module AutoTypeDoc
-  JSON_FILE = './types.json'
-
   module_function
+
+  METHOD_BLACK_LIST = %r{
+    AutoTypeDoc
+  }x
+
+  LOCATION_BLACK_LIST = %r{
+    rubies/
+    |/gems/
+    |/spec/
+    |/test/
+  }x
 
   Tracker = TracePoint.new(:call, :return) do |t|
     begin
@@ -19,7 +29,13 @@ module AutoTypeDoc
       next
     end
 
-    next if method.to_s =~ /Set|Test|AutoTypeDoc|Minitest|RSpec|Gem|main|OptionParser|FileUtils|Mutex_m|Kernel/
+    source_location = method.source_location
+    next if source_location.nil?
+
+    source_path = source_location[0]
+    next if source_path =~ LOCATION_BLACK_LIST
+    next if method.to_s =~ METHOD_BLACK_LIST
+    next if method_name_with_owner(method).start_with?("#<")
 
     case t.event
     when :call
@@ -30,6 +46,8 @@ module AutoTypeDoc
     end
   end
 
+  # @param method [Method]
+  # @return [String]
   def method_name_with_owner(method)
     method.to_s[/^#<Method:\s(.+)>$/, 1].sub(/^.+\((.+)\)/, '\1')
   end
@@ -56,7 +74,11 @@ module AutoTypeDoc
   # @return [String]
   def type(obj)
     if obj.is_a?(Array) && obj.any?
-      return "#{obj.class}<#{obj.first.class}>"
+      return "#{obj.class}<#{type(obj.first)}>"
+    end
+
+    if obj.equal?(true) || obj.equal?(false)
+      return "Boolean"
     end
 
     obj.class
@@ -71,15 +93,15 @@ module AutoTypeDoc
   def method_info(method)
     key = method_name_with_owner(method)
 
-    AutoTypeDoc.methods[key] ||= MethodInfo.new(
+    AutoTypeDoc.all_method_info[key] ||= MethodInfo.new(
       source_location: method.source_location
     )
 
-    AutoTypeDoc.methods[key]
+    AutoTypeDoc.all_method_info[key]
   end
 
-  def methods
-    @methods ||= {}
+  def all_method_info
+    @all_method_info ||= {}
   end
 
   def enable
@@ -90,9 +112,15 @@ module AutoTypeDoc
     Tracker.disable
   end
 
+  def doc_dir
+    './type_doc'
+  end
+
   def dump_json
-    File.open(JSON_FILE, 'w') do |f|
-      f.write(JSON.pretty_generate(methods))
+    FileUtils.mkdir_p(doc_dir)
+
+    File.open("#{doc_dir}/types.json", 'w') do |f|
+      f.write(JSON.pretty_generate(all_method_info))
     end
   end
 end

@@ -14,7 +14,7 @@
       "Array": 1
     },
     "source_location": {
-      "file": "./foo_test.rb",
+      "file": "foo_test.rb",
       "line": 30
     }
   },
@@ -33,7 +33,7 @@
       "NilClass": 1
     },
     "source_location": {
-      "file": "./foo_test.rb",
+      "file": "foo_test.rb",
       "line": 15
     }
   },
@@ -54,7 +54,7 @@
       "Float": 2
     },
     "source_location": {
-      "file": "./foo_test.rb",
+      "file": "foo_test.rb",
       "line": 36
     }
   },
@@ -73,7 +73,7 @@
       "NilClass": 1
     },
     "source_location": {
-      "file": "./foo_test.rb",
+      "file": "foo_test.rb",
       "line": 20
     }
   },
@@ -92,7 +92,7 @@
       "String": 1
     },
     "source_location": {
-      "file": "./foo_test.rb",
+      "file": "foo_test.rb",
       "line": 23
     }
   }

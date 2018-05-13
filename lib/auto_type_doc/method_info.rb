@@ -47,14 +47,15 @@ module AutoTypeDoc
     end
 
     def to_h
-      {
-        arguments: arguments.map(&:to_h),
+      h = {}
+      h[:arguments] = arguments.map(&:to_h) if arguments.any?
+      h.merge(
         return_types: return_types,
         source_location: {
-          file: source_file,
+          path: source_file,
           line: source_line
         }
-      }
+      )
     end
 
     def to_json(*args)
