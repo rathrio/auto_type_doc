@@ -1,5 +1,7 @@
 module AutoTypeDoc
   class Argument
+    include TypeStats
+
     attr_reader :name, :types, :kind, :position
 
     def initialize(name:, kind:, position:)
@@ -7,6 +9,10 @@ module AutoTypeDoc
       @kind = kind.to_s
       @types = Hash.new(0)
       @position = position
+    end
+
+    def doc_string
+      "# @param #{name} [#{most_frequent_type}]"
     end
 
     def add_type(type)

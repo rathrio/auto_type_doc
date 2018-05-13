@@ -1,4 +1,5 @@
 require "auto_type_doc/version"
+require "auto_type_doc/type_stats"
 require "auto_type_doc/argument"
 require "auto_type_doc/method_info"
 
@@ -71,6 +72,13 @@ module AutoTypeDoc
     end
   end
 
+  def on_return(t, method:)
+    method_info = method_info(method)
+    obj = t.return_value
+    method_info.add_return_type(type(obj))
+  end
+
+  # @param obj [Object]
   # @return [String]
   def type(obj)
     if obj.is_a?(Array) && obj.any?
@@ -84,16 +92,13 @@ module AutoTypeDoc
     obj.class
   end
 
-  def on_return(t, method:)
-    method_info = method_info(method)
-    obj = t.return_value
-    method_info.add_return_type(type(obj))
-  end
-
+  # @param method [Method]
+  # @return [MethodInfo]
   def method_info(method)
     key = method_name_with_owner(method)
 
     AutoTypeDoc.all_method_info[key] ||= MethodInfo.new(
+      id: key,
       source_location: method.source_location
     )
 

@@ -14,8 +14,8 @@
       "Array": 1
     },
     "source_location": {
-      "file": "foo_test.rb",
-      "line": 30
+      "path": "[",
+      "line": "\""
     }
   },
   "M#bite": {
@@ -33,8 +33,8 @@
       "NilClass": 1
     },
     "source_location": {
-      "file": "foo_test.rb",
-      "line": 15
+      "path": "[",
+      "line": "\""
     }
   },
   "Cat.foobar": {
@@ -54,8 +54,8 @@
       "Float": 2
     },
     "source_location": {
-      "file": "foo_test.rb",
-      "line": 36
+      "path": "[",
+      "line": "\""
     }
   },
   "CM#eat": {
@@ -73,8 +73,8 @@
       "NilClass": 1
     },
     "source_location": {
-      "file": "foo_test.rb",
-      "line": 20
+      "path": "[",
+      "line": "\""
     }
   },
   "CM.info": {
@@ -92,8 +92,8 @@
       "String": 1
     },
     "source_location": {
-      "file": "foo_test.rb",
-      "line": 23
+      "path": "[",
+      "line": "\""
     }
   }
 }

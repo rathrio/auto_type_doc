@@ -53,3 +53,6 @@ CM.info(1, 2)
 
 AutoTypeDoc.disable
 AutoTypeDoc.dump_json
+
+binding.pry
+puts

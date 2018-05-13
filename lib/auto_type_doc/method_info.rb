@@ -1,11 +1,12 @@
 module AutoTypeDoc
   class MethodInfo
-    attr_accessor :arguments
-    attr_accessor :return_types
-    attr_accessor :source_location
+    include TypeStats
 
-    def initialize(source_location:)
-      @source_location = source_location
+    attr_reader :id, :arguments, :return_types, :source_location
+
+    def initialize(id:, source_location:)
+      @id = id.to_s
+      @source_location = source_location.to_s
       @arguments = Set.new
       @return_types = Hash.new(0)
     end
@@ -20,6 +21,12 @@ module AutoTypeDoc
 
     def argument(name)
       arguments.find { |a| a.name == name.to_s }
+    end
+
+    def doc_string
+      arguments_doc = arguments.map(&:doc_string).join("\n")
+      return_doc = "# @return [#{most_frequent_return_type}]"
+      "#{arguments_doc}\n#{return_doc}"
     end
 
     def add_argument(name:, type:, kind:, position:)
@@ -37,8 +44,8 @@ module AutoTypeDoc
     end
 
     # @return [String]
-    def most_frequent_arg_type(arg_name)
-      most_frequent_type(argument(arg_name).types)
+    def most_frequent_argument_type(arg_name)
+      argument(arg_name).most_frequent_type
     end
 
     # @return [String]
@@ -60,12 +67,6 @@ module AutoTypeDoc
 
     def to_json(*args)
       to_h.to_json(*args)
-    end
-
-    private
-
-    def most_frequent_type(type_hash)
-      type_hash.max_by { |_, count| count }[0]
     end
   end
 end
