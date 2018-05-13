@@ -22,7 +22,55 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Call `AutoTypeDoc.enable` to start collecting type information and
+`AutoTypeDoc.dump_json` to store it in `type_doc/types.json` in the current
+folder, e.g.
+
+```ruby
+# in test.rb
+require 'auto_type_doc'
+
+AutoTypeDoc.enable
+
+class Cat
+  def bite(dog)
+    "Bite #{dog}"
+  end
+end
+
+class Dog; end
+
+Cat.new.bite(Dog.new)
+
+AutoTypeDoc.dump_json
+```
+
+After running this script, e.g. with `ruby test.rb`, `type_doc/types.json` will
+contain:
+
+```json
+{
+  "Cat#bite": {
+    "arguments": [
+      {
+        "name": "dog",
+        "types": {
+          "Dog": 1
+        },
+        "kind": "req",
+        "position": 0
+      }
+    ],
+    "return_types": {
+      "String": 1
+    },
+    "source_location": {
+      "path": "test.rb",
+      "line": 6
+    }
+  }
+}
+```
 
 ## Development
 
