@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Rathesan Iyadurai"]
   spec.email         = ["rad.iyadurai@gmail.com"]
 
-  spec.summary       = %q{AutoTypeDoc}
-  spec.description   = %q{AutoTypeDoc}
+  spec.summary       = %q{Automatic type documentation powered by Ruby's runtime information}
+  spec.description   = %q{}
   spec.homepage      = "https://github.com/rathrio/auto_type_doc"
   spec.license       = "MIT"
 
